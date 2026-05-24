@@ -1,0 +1,14 @@
+{
+  "name": "Classic Gun Game",
+  "tree": {
+    "$className": "DataModel",
+    "ReplicatedStorage": {
+      "App": {
+        "$path": "src/ReplicatedStorage/App"
+      }
+    },
+    "ServerScriptService": {
+      "$path": "src/ServerScriptService"
+    }
+  }
+}

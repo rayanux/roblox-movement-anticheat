@@ -1,0 +1,8 @@
+.DS_Store
+Thumbs.db
+*.rbxl
+*.rbxlx
+*.rbxm
+*.rbxmx
+.vscode/
+.idea/
