@@ -1,6 +1,6 @@
 # Movement Anti-Cheat
 
-A lightweight Roblox movement anti-cheat built around server-side validation, client movement samples, and optional server correction.
+A lightweight Roblox movement anti-cheat built around server-side validation, client movement samples, and server correction.
 
 The system is designed to catch common movement abuse without replacing Roblox's default character controller. It watches player movement from the server, compares it against expected limits, and reacts when movement looks unsafe or impossible.
 
@@ -10,8 +10,8 @@ The system is designed to catch common movement abuse without replacing Roblox's
 - Large position jumps or teleport-like movement
 - Sustained speed above the allowed movement window
 - Acceleration spikes
-- Hovering or slow-fall behavior
-- Noclip-style movement through collidable parts
+- Hovering or slow fall
+- Noclip movement through collidable parts
 - Suspicious vertical velocity
 - Bad ground states, steep slopes, or missing floor data
 - Client/server position desync
@@ -19,8 +19,6 @@ The system is designed to catch common movement abuse without replacing Roblox's
 - Network ownership mismatches
 
 ## How It Works
-
-The server owns the important decisions.
 
 Clients send compact movement samples at a fixed rate. The server unpacks those samples, rate-limits them, and compares them with server-observed character data. Each player has a session that stores recent samples, score data, safe positions, and short grace windows for respawns or safe teleports.
 
@@ -31,8 +29,6 @@ When a violation is detected, the system can:
 - Correct the player back to the last safe position
 - Reset unsafe velocity
 - Kick the player if the configured punishment score is reached
-
-The correction path is intentionally separate from the detection checks so the thresholds can be tuned without changing the networking or session code.
 
 ## Folder Layout
 
@@ -113,25 +109,13 @@ Important values include:
 - `fixGrace`, `fixCooldown`, and `fixScore` for correction behavior
 - `kickEnabled`, `kickScore`, and `kickMessage` for final punishment
 
-The default values are meant to be a starting point. Games with custom movement, launch pads, dashes, vehicles, or teleport abilities should tune the thresholds and call `NoteSafeTeleport` where needed.
-
 ## Notes
 
 - The server does not fully trust client movement packets.
-- Client packets are used as extra context, not as the only source of truth.
 - Short grace windows are used for respawns, safe teleports, and landing edge cases.
 - Climbing, swimming, ragdoll, and similar states are treated more leniently to reduce false positives.
 - This is not a complete exploit prevention system. It is one layer that should be tested with your own movement mechanics.
 
-## GitHub
-
-You can publish this on GitHub if you own the code or have permission to release every included file.
-
-Before publishing, remove anything private or game-specific that should not be public, such as:
-
-- API keys or private endpoints
-- paid/private assets
-- unreleased game logic
 - personal test scripts
 - copied code you do not have permission to redistribute
 
