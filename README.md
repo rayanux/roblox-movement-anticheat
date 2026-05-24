@@ -114,9 +114,4 @@ Important values include:
 - The server does not fully trust client movement packets.
 - Short grace windows are used for respawns, safe teleports, and landing edge cases.
 - Climbing, swimming, ragdoll, and similar states are treated more leniently to reduce false positives.
-- This is not a complete exploit prevention system. It is one layer that should be tested with your own movement mechanics.
-
-- personal test scripts
-- copied code you do not have permission to redistribute
-
-Add a license if you want other people to use or modify the project. If you do not add a license, people can view the code, but they do not automatically get permission to reuse it.
+- This is not a complete exploit prevention system.
