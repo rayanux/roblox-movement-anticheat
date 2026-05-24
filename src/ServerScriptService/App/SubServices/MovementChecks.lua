@@ -138,7 +138,6 @@ local function checkAir(s: Session, cur: ServerSample): Violation?
 
 	s.hoverFrames = math.max(0, s.hoverFrames - 1)
 
-	-- Keep this softer than hover; one slow fall frame should not mean flying.
 	if lowVy and s.airTime > Cfg.maxAirTime + 0.5 then
 		return violation(Reason.Fly, 4, "slow-fall", true)
 	end
