@@ -75,7 +75,7 @@ Config.kickEnabled = true
 Config.kickScore = 18
 Config.minKickSev = 6
 Config.requireFix = true
-Config.kickMessage = "Movement exploit detected."
+Config.kickMessage = "Movement exploit detected"
 
 Config.checks = table.freeze({
 	speed = true,
