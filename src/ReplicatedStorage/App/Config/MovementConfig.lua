@@ -9,7 +9,7 @@ Config.clientHz = 14
 Config.bufSize = 32
 Config.fixBufSize = 20
 
--- Humanoid limits
+-- Walkspeed limits
 Config.defaultSpeed = 16
 Config.maxSpeed = 24
 
@@ -70,7 +70,7 @@ Config.logEnabled = true
 Config.logMinSev = 4
 Config.logCooldown = 1.5
 
--- Final action
+-- Punishment action
 Config.kickEnabled = true
 Config.kickScore = 18
 Config.minKickSev = 6
