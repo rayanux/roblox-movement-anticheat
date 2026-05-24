@@ -18,8 +18,6 @@ local function violation(kind: number, sev: number, msg: string, correct: boolea
 	return { kind = kind, sev = sev, msg = msg, correct = correct }
 end
 
--- Cast only through the actual movement delta. Padding this ray caused false
--- positives beside trusses and thin wall trim.
 local function crossed(from: Vector3, d: Vector3, rp: RaycastParams?): boolean
 	local hit = workspace:Raycast(from, d, rp)
 	if hit == nil then return false end
@@ -54,7 +52,6 @@ end
 
 function Physics.noclip(prev: Sample?, cur: Sample, rp: RaycastParams?): Violation?
 	if prev == nil or not Cfg.checks.noclip then return nil end
-	-- Climbing can push the root through truss bars for a frame.
 	if prev.state == Enum.HumanoidStateType.Climbing or cur.state == Enum.HumanoidStateType.Climbing then
 		return nil
 	end
