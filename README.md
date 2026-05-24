@@ -51,6 +51,7 @@ ReplicatedStorage
         └── Trail
 
 ServerScriptService
+├── Server
 └── App
     ├── Services
     │   └── MoveAC
@@ -68,6 +69,18 @@ ServerScriptService
     │   └── Logger
     └── Types
         └── ServerTypes
+
+StarterPlayer
+└── StarterPlayerScripts
+    ├── Client
+    └── App
+        ├── Controllers
+        │   ├── PredictionController
+        │   └── CorrectionController
+        ├── Modules
+        │   └── ControllerRunner
+        └── Types
+            └── ClientTypes
 ```
 
 ## Setup
