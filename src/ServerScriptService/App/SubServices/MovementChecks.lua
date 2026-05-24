@@ -102,8 +102,6 @@ local function checkAccel(s: Session, prev: ServerSample?, cur: ServerSample): V
 	return violation(Reason.Accel, 3, "accel spike", false)
 end
 
--- Airtime used to be one flat limit. Splitting hover from big falls keeps
--- normal drops from looking like flight.
 local function checkAir(s: Session, cur: ServerSample): Violation?
 	if cur.onFloor then
 		s.airTime = 0
